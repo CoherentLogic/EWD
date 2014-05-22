@@ -488,6 +488,7 @@ expandTreeArray(inArray,outArray,page,addTo,replace,expanded)
  . . i $g(inArray(index,"nextPage"))'="" s outArray(index,"page")=inArray(index,"nextPage")
  . . i $g(inArray(index,"addTo"))'="" s outArray(index,"addTo")=inArray(index,"addTo")
  . . i $g(inArray(index,"replacePreviousPage"))="true" s outArray(index,"replace")=1
+ . . i $g(inArray(index,"iconCls"))'="" s outArray(index,"iconCls")=inArray(index,"iconCls") ; jpw patch to pass iconCls
  . . ;i $g(outArray(index,"page"))'="" d
  . . ;. s outArray(index,"nvp")=$g(inArray(index,"nvp"))
  . . i $g(inArray(index,"nvp"))'="" s outArray(index,"nvp")=inArray(index,"nvp")
@@ -507,6 +508,7 @@ expandTreeArray(inArray,outArray,page,addTo,replace,expanded)
  . . i $g(inArray(index,"nextPage"))'="" s outArray(index,"page")=inArray(index,"nextPage")
  . . i $g(inArray(index,"addTo"))'="" s outArray(index,"addTo")=inArray(index,"addTo")
  . . i $g(inArray(index,"replacePreviousPage"))="true" s outArray(index,"replace")=1
+ . . i $g(inArray(index,"iconCls"))'="" s outArray(index,"iconCls")=inArray(index,"iconCls") ; jpw patch to pass iconCls
  . . ;i $g(outArray(index,"page"))'="" s outArray(index,"nvp")=$g(inArray(index,"nvp"))
  . . i $g(inArray(index,"nvp"))'="" s outArray(index,"nvp")=inArray(index,"nvp")
  ;

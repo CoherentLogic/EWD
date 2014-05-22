@@ -82,8 +82,24 @@ container(nodeOID,attrValue,docOID,technology)
  i title="" s title="ExtJS 4 Application"
  s rootPath=$g(mainAttrs("rootpath"))
  i rootPath'="" d  ;s rootPath="/ext-4/"
- . s rootPath=$$addSlashAtEnd^%zewdST(rootPath)
- . s ^zewd("rootPath",$$zcvt^%zewdAPI(app,"L"))=rootPath
+ . ; BEGIN jpw patch to allow relative paths
+ . i $e(rootPath,1,1)'="/" d
+ . . s rootPath=$$addSlashAtEnd^zewdST(^zewd("config","RootURL",^zewd("config","defaultTechnology")))_rootPath
+ . . s ^zewd("rootPath",$$zcvt^%zewdAPI(app,"L"))=rootPath
+ . e  d
+ . ; END jpw patch to allow relative paths
+ . . s rootPath=$$addSlashAtEnd^%zewdST(rootPath)
+ . . s ^zewd("rootPath",$$zcvt^%zewdAPI(app,"L"))=rootPath
+ . . ; BEGIN jpw patch to supply rootPath from 
+ . . ; ^zewd("config","Ext4RootURL",^zewd("config","defaultTechnology")), if
+ . . ; rootPath is not defined as an attribute in <ext4:container> at all.
+ e  d
+ . i $d(^zewd("config","Ext4RootURL",^zewd("config","defaultTechnology"))) d
+ . . s rootPath=$$addSlashAtEnd^%zewdST(^zewd("config","Ext4RootURL",^zewd("config","defaultTechnology")))
+ . . s ^zewd("rootPath",$$zcvt^%zewdAPI(app,"L"))=rootPath
+ ; END jpw patch to supply rootPath from 
+ ; ^zewd("config","Ext4RootURL",^zewd("config","defaultTechnology")), if
+ ; rootPath is not defined as an attribute in <ext4:container> at all.
  s jsVersion=$g(mainAttrs("jsversion"))
  i jsVersion="" s jsVersion="ext-all.js"
  s cssVersion=$g(mainAttrs("cssversion"))

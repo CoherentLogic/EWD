@@ -200,6 +200,8 @@ importNotExists
  QUIT i
  ;
 parseDocument(docName,isHTML)
+ ;w !,"parseDocument^%zewdHTMLParser(",docName,",",isHTML,")",!
+ ;break
  ;
  ; Extract each line from the document
  ;
@@ -266,6 +268,7 @@ parseDocument(docName,isHTML)
  Q $g(%error)
  ;
 addChild(%line,parentOID,docOID,nextLine,%buf,%error,impliedClose,isHTML)
+ zwr
  ;
  n %attr,%text,%nextLine,%line2,childOID,i,%line3,tagName,%stop,isText,textArray,%xattr
  ;

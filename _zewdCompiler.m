@@ -279,6 +279,7 @@ addToReport(text,results)
  QUIT
  ;
 processApplication(inputPath,outputPath,verbose,outputStyle,results,technology,clearResults,multilingual,templateFilename,maxLines)
+	;w "processApplication passNo=",$g(passNo,"{undefined}")," inputPath=",inputPath," outputPath=",outputPath,!
 	;
 	n checkboxNo,ewdWLErrorCompiled,files,dirs,dir,delim,error,isDojo,isIwd,mgwsiServer,mode
 	;
@@ -391,7 +392,7 @@ getmgwsiServer(templateDocName)
 	i mgwsiServer="" s mgwsiServer=defaultServer
 	QUIT mgwsiServer
 	;
-processFiles(files,inputPath,outputPath,verbose,mode,technology,multilingual,mgwsiServer,templateFilename,maxLines)
+processFiles(files,inputPath,outputPath,verbose,mode,technology,multilingual,mgwsiServer,templateFilename,maxLines)	
 	;
 	n cspVars,dlim,error,filename,hasSubDirectories,i,ok,phpVars,templateDocName,version
 	;
@@ -467,6 +468,7 @@ processTemplate(filename,inputPath,docName,phpVars,technology,cspVars)
 	QUIT ""
 	;
 processFile(filename,inputPath,outputPath,templateDocName,mode,phpVars,technology,multiLingual,cspVars,maxLines)
+	w !,"processFile ",filename," inputPath=",inputPath," outputPath=",outputPath,!
 	;
 	n allArray,app,config,dataTypeList,dlim,docName,docOID,dojoTypes,error,%error,ext,filepath
 	n formDeclarations,hasSubDirectories,idList,isAjax,isXSLFO,jsOID,jspHeaderArray

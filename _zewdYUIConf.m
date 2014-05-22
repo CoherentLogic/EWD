@@ -69,10 +69,10 @@ install
  . s ^zewd("autoload","*","sessionValue","yui.resourceLoaderPath")=path
  . s ^zewd("autoload","*","sessionValue","yui.resourcePath")="/yui-2.6.0/"
  ;
- zsystem "sudo mkdir /var/www/assets"
- zsystem "sudo mkdir /var/www/assets/skins"
- zsystem "sudo mkdir /var/www/assets/skins/sam"
- zsystem "sudo cp /var/www/yui-2.6.0/build/assets/skins/sam/sprite.png /var/www/assets/skins/sam/sprite.png"
+ ;zsystem "sudo mkdir /var/www/assets"
+ ;zsystem "sudo mkdir /var/www/assets/skins"
+ ;zsystem "sudo mkdir /var/www/assets/skins/sam"
+ ;zsystem "sudo cp /var/www/yui-2.6.0/build/assets/skins/sam/sprite.png /var/www/assets/skins/sam/sprite.png"
  QUIT
  ;
 setYUIVersion(version)
@@ -82,15 +82,15 @@ setYUIVersion(version)
 installApplication(appName)
  n file,lcAppName
  ;
- zsystem "sudo mkdir /var/www/ewd"
+ ;zsystem "sudo mkdir /var/www/ewd"
  s lcAppName=$$zcvt^%zewdAPI(appName,"l")
- zsystem "sudo mkdir /var/www/ewd/"_lcAppName
+ ;zsystem "sudo mkdir /var/www/ewd/"_lcAppName
  f file="menubaritem_submenuindicator","menubaritem_submenuindicator_disabled","menuitem_checkbox","menuitem_checkbox_disabled","menuitem_submenuindicator","menuitem_submenuindicator_disabled" d
- . zsystem "sudo cp /var/www/yui-2.6.0/build/menu/assets/skins/sam/"_file_".png /var/www/ewd/"_lcAppName_"/"_file_".png"
+ . ;zsystem "sudo cp /var/www/yui-2.6.0/build/menu/assets/skins/sam/"_file_".png /var/www/ewd/"_lcAppName_"/"_file_".png"
  f file="dt-arrow-dn","dt-arrow-up" d
- . zsystem "sudo cp /var/www/yui-2.6.0/build/datatable/assets/skins/sam/"_file_".png /var/www/ewd/"_lcAppName_"/"_file_".png"
+ . ;zsystem "sudo cp /var/www/yui-2.6.0/build/datatable/assets/skins/sam/"_file_".png /var/www/ewd/"_lcAppName_"/"_file_".png"
  f file="treeview-sprite.gif" d
- . zsystem "sudo cp /var/www/yui-2.6.0/build/treeview/assets/skins/sam/"_file_" /var/www/ewd/"_lcAppName_"/"_file
+ . ;zsystem "sudo cp /var/www/yui-2.6.0/build/treeview/assets/skins/sam/"_file_" /var/www/ewd/"_lcAppName_"/"_file
  ;
  s ^zewd("config","YUI","app",appName)=""
  ;
